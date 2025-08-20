@@ -1,117 +1,134 @@
-## 자바 주석
- **주석(Comment)** 은 코드에 메모를 남기거나 설명을 붙이는 용도로 사용합니다. 프로그램 실행에는 영향을 주지 않아요.
+## **Java 기초 개념 정리**
 
+### 1. **클래스와 메서드**
 
-## 자바 주석 종류
+* **클래스 이름 규칙:** PascalCase → `Solution01`, `MyClass`
+* **변수, 메서드 이름 규칙:** camelCase → `num`, `scannerInput()`
+* **주석**
 
-### 1. 한 줄 주석 (Single-line comment)
-
-`//` 뒤에 오는 내용은 무시됩니다.
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        // 화면에 메시지를 출력하는 코드
-        System.out.println("Hello, Java!"); // 이것도 주석
-    }
-}
-```
-
-
-### 2. 여러 줄 주석 (Multi-line comment)
-
-`/*` 와 `*/` 사이에 있는 내용은 전부 주석 처리됩니다.
-
-```java
-public class Main {
-    public static void main(String[] args) {
-        /*
-         이 부분은 여러 줄 주석입니다.
-         코드 설명을 길게 적을 때 사용합니다.
-        */
-        System.out.println("여러 줄 주석 연습");
-    }
-}
-```
-
-### 3. 문서 주석 (Documentation comment)
-
-`/**` 로 시작하고 `*/` 로 끝납니다.
-**Javadoc** 이라는 도구로 자동 문서를 만들 때 사용합니다.
+    * 한 줄: `//`
+    * 여러 줄: `/* ... */`
+    * JavaDoc: `/** ... */` (HTML 태그 사용 가능)
 
 ```java
 /**
- * 프로그램의 시작 클래스
+ * <p>JavaDoc 예시</p>
+ * 🫠 마크다운 일부는 안되고 태그는 적용됨
  */
-public class Main {
-    /**
-     * 프로그램 시작점
-     * @param args 실행할 때 입력값
-     */
+public class Solution01 {
     public static void main(String[] args) {
-        System.out.println("문서 주석 예제");
+        System.out.println("Hello, Java!");
     }
 }
 ```
-<br />
 
---- 
+---
 
-## IntelliJ 단축키
+### 2. **출력**
 
-### 탐색 / 검색
-| 기능         | Windows / Linux    | macOS          |
-| ---------- | ------------------ | -------------- |
-| 전체 검색      | `Double Shift`     | `Double Shift` |
-| 클래스 검색     | `Ctrl+N`           | `Cmd+O`        |
-| 파일 검색      | `Ctrl+Shift+N`     | `Cmd+Shift+O`  |
-| 심볼 검색      | `Ctrl+Alt+Shift+N` | `Cmd+Alt+O`    |
-| 네비게이션 바 열기 | `Alt+Home`         | `Cmd+Up`       |
+* `System.out.println()` : 줄바꿈 후 출력
+* `System.out.print()` : 줄바꿈 없이 출력
+* `\n` : 줄바꿈 escape 문자
 
-### 코드 편집
-| 기능                  | Windows / Linux          | macOS                  |
-| ------------------- | ------------------------ | ---------------------- |
-| 코드 자동 완성            | `Ctrl+Space`             | `Ctrl+Space`           |
-| 스마트 자동 완성           | `Ctrl+Shift+Space`       | `Ctrl+Shift+Space`     |
-| 구문 자동 완성            | `Ctrl+Shift+Enter`       | `Cmd+Shift+Enter`      |
-| 주석 처리 (라인/블록)       | `Ctrl+/`, `Ctrl+Shift+/` | `Cmd+/`, `Cmd+Shift+/` |
-| 현재 줄 복제             | `Ctrl+D`                 | `Cmd+D`                |
-| 현재 줄 삭제             | `Ctrl+Y`                 | `Cmd+Backspace`        |
-| 다음 줄 이동             | `Shift+Enter`            | `Shift+Enter`          |
-| 코드 자동 정렬 (Reformat) | `Ctrl+Alt+L`             | `Cmd+Option+L`         |
+```java
+System.out.println("줄바꿈 출력");
+System.out.print("줄바꿈 없이 출력");
+System.out.print("\n"); // 직접 줄바꿈
+```
 
-### 이동
-| 기능          | Windows / Linux         | macOS                                 |
-| ----------- | ----------------------- | ------------------------------------- |
-| 선언부로 이동     | `Ctrl+B`, `Ctrl+Click`  | `Cmd+B`, `Cmd+Click`                  |
-| 이전/다음 파일 이동 | `Alt+Left`, `Alt+Right` | `Cmd+Option+Left`, `Cmd+Option+Right` |
-| 최근 파일       | `Ctrl+E`                | `Cmd+E`                               |
-| 최근 수정 파일    | `Ctrl+Shift+E`          | `Cmd+Shift+E`                         |
+---
 
-### 리팩토링
-| 기능             | Windows / Linux | macOS          |
-| -------------- | --------------- | -------------- |
-| 이름 변경 (Rename) | `Shift+F6`      | `Shift+F6`     |
-| 메서드 추출         | `Ctrl+Alt+M`    | `Cmd+Option+M` |
-| 변수 추출          | `Ctrl+Alt+V`    | `Cmd+Option+V` |
-| 필드 추출          | `Ctrl+Alt+F`    | `Cmd+Option+F` |
-| 상수 추출          | `Ctrl+Alt+C`    | `Cmd+Option+C` |
+### 3. **입력 (Scanner)**
 
-### 실행 & 디버깅
-| 기능               | Windows / Linux | macOS       |
-| ---------------- | --------------- | ----------- |
-| 실행               | `Shift+F10`     | `Ctrl+R`    |
-| 디버깅 실행           | `Shift+F9`      | `Ctrl+D`    |
-| Step Over        | `F8`            | `F8`        |
-| Step Into        | `F7`            | `F7`        |
-| Step Out         | `Shift+F8`      | `Shift+F8`  |
-| Run to Cursor    | `Alt+F9`        | `Option+F9` |
-| Breakpoint 설정/해제 | `Ctrl+F8`       | `Cmd+F8`    |
+* `Scanner sc = new Scanner(System.in);` → 입력 객체 생성
+* 숫자 입력: `sc.nextInt()`
+* 실수 입력: `sc.nextDouble()`, `BigDecimal` 사용 가능
+* 문자열 입력:
 
-### 기타
-| 기능           | Windows / Linux | macOS          |
-| ------------ | --------------- | -------------- |
-| 실행/디버깅 구성 검색 | `Double Ctrl`   | `Double Cmd`   |
-| 액션 검색        | `Ctrl+Shift+A`  | `Cmd+Shift+A`  |
-| 탭 전환         | `Ctrl+Tab`      | `Ctrl+Tab`     |
-| 빠른 수정 제안     | `Alt+Enter`     | `Option+Enter` |
+    * 한 단어: `sc.next()`
+    * 한 줄: `sc.nextLine()`
+* 버퍼 문제 주의: 숫자 입력 후 `nextLine()` 필요
+
+```java
+Scanner sc = new Scanner(System.in);
+int num = sc.nextInt();
+sc.nextLine(); // 엔터 제거
+String name = sc.nextLine();
+sc.close();
+```
+
+---
+
+### 4. **변수와 타입**
+
+* **정수형:** `int` (32bit), `long` (64bit, L 붙임)
+* **실수형:** `float`, `double`, `BigDecimal` (정밀도 높음)
+* **문자열:** `String`
+* **논리형:** `boolean`
+
+```java
+int a = 10;
+long b = 30_000_000_000L; // _로 가독성
+BigDecimal eye = sc.nextBigDecimal();
+```
+
+---
+
+### 5. **연산자**
+
+1. **산술 연산자:** `+ - * / %`
+
+2. **대입/복합 대입:** `=, +=, -=, *=, /=, %=`
+
+3. **증감 연산자:** `++`, `--`
+
+    * `a++`: 후위 연산 (사용 후 증가)
+    * `++a`: 전위 연산 (증가 후 사용)
+
+4. **비교/관계 연산자:** `==, !=, >, <, >=, <=`
+
+5. **논리 연산자:** `&&` (AND), `||` (OR), `!` (NOT)
+
+    * 단축 평가: `&&` 앞이 false면 뒤 평가 안함, `||` 앞이 true면 뒤 평가 안함
+
+```java
+int a = 10;
+a += 5; // a = 15
+boolean c = (a > 10) && (a < 20); // true
+```
+
+---
+
+### 6. **문자열 비교**
+
+* `==` : **주소값 비교**
+* `equals()` : **값 비교**
+
+```java
+String s1 = "1";
+String s2 = new String("1");
+System.out.println(s1 == s2); // false
+System.out.println(s1.equals(s2)); // true
+```
+
+---
+
+### 7. **입력 예제 통합**
+
+```java
+Scanner sc = new Scanner(System.in);
+
+System.out.print("좋아하는 숫자 입력: ");
+int num = sc.nextInt();
+sc.nextLine(); // 버퍼 제거
+
+System.out.print("좋아하는 아이돌 입력: ");
+String idol = sc.nextLine();
+
+System.out.println("좋아하는 숫자: " + num);
+System.out.println("좋아하는 아이돌: " + idol);
+
+sc.close();
+```
+
+---
